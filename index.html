@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+  <style>
+    body {
+      background-image: url("https://e0.pxfuel.com/wallpapers/29/742/desktop-wallpaper-pure-black-background-solid.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #90EE90;
+    }
+
+    .container {
+      padding-top: 50px;
+    }
+
+    .bio-image {
+      width: 250px;
+      height: 250px;
+      border-radius: 30%;
+      object-fit: cover;
+    }
+
+    .card-img-top {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Custom Styles */
+    h1,
+    h5 {
+      color: #FFFFFF;
+    }
+
+    p {
+      color: #B2DFDB;
+    }
+
+    .progress-bar {
+      background-color: #007bff;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .card {
+      background-color: #ADD8E6;
+      border-color: #dee2e6;
+    }
+
+    .card-text {
+      color: #333;
+      height: 100px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-text::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(248, 249, 250, 0), rgba(248, 249, 250, 1));
+    }
+
+    .card:hover .card-text {
+      overflow: auto;
+    }
+
+    .card:hover .card-text::after {
+      display: none;
+    }
+
+    .card:hover {
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    .linkedin-link {
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .linkedin-link:hover {
+      color: #00568E;
+    }
+
+    .bio {
+      font-size: calc(1rem + 2px);
+    }
+
+    .bio h1,
+    .bio h5,
+    .bio p {
+      font-size: calc(1rem + 2px);
+    }
+
+    .read-more {
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    .portfolio-heading {
+      font-size: 5rem;
+      color: #FFFFFF;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .progress-bar {
+      background-color: #FFA500;
+    }
+
+    .box-container {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .box-heading {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    .top-icons {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .top-icons a {
+      color: #FFFFFF;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    .top-icons a:last-child {
+      margin-right: 20;
+    }
+
+    .top-icons a:hover {
+      color: #00568E;
+    }
+
+    .top-icons i {
+      margin-right: 5px;
+    }
+
+    .tableau-image {
+      transition: transform 0.3s ease;
+    }
+
+    .tableau-image:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-icon {
+      font-size: 50px;
+      margin-right: 10px;
+    }
+
+    .skill-name {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Roboto', sans-serif;
+    }
+
+	.skills-section {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	  grid-gap: 20px;
+	  max-width: 1000px; /* Adjust this value to control the maximum width of the skills section */
+	  margin: 0 auto;
+	}
+
+	/* Define the styles for each skill item */
+	.skill-item {
+	  display: flex;
+	  align-items: center;
+	  margin: 10px;
+	  }
+
+    /* Define the colors for the respective skills */
+    .python {
+      color: #3776AB; /* Original Python color */
+    }
+
+    .machine-learning {
+      color: #F7931E; /* Original Machine Learning color */
+    }
+
+    .natural-language-processing {
+      color: #00ACEE; /* Original NLP color */
+    }
+
+    .deep-learning {
+      color: #FF6F00; /* Original Deep Learning color */
+    }
+
+    .mysql {
+      color: #4479A1; /* Original MySQL color */
+    }
+
+    .tableau {
+      color: #064C93; /* Original Tableau color */
+    }
+
+    .mathematics {
+      color: #800000; /* Original Mathematics color */
+    }
+
+    .statistics {
+      color: #5F9EA0; /* Original Statistics color */
+    }
+
+    .pandas {
+      color: #150458; /* Original Pandas color */
+    }
+
+    .numpy {
+      color: #013243; /* Original NumPy color */
+    }
+
+    .lstm {
+      color: #FFA726; /* Original LSTM color */
+    }
+
+    .opencv {
+      color: #5C3EE8; /* Original OpenCV color */
+    }
+
+    .skillset-section {
+      padding: 20px;
+    }
+
+    .skillset-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 20px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <section id="contact" class="d-flex justify-content-end">
+    <div class="top-icons">
+      <a href="https://www.linkedin.com/in/mandeepsinghnagi/" class="linkedin-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/Mandeep-Singh23" class="linkedin-link"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://public.tableau.com/app/profile/mandeep.singh.nagi" class="linkedin-link"><i class="fab fa-tableau"></i> Tableau</a>
+    </div>
+  </section>
+
+  <h1 class="portfolio-heading">My Portfolio</h1>
+  <div class="container">
+    <section id="bio">
+	  <div class="row">
+		<div class="col-md-8">
+		  <h1>Bio</h1>
+		  <p style="font-size: 20px;">
+			I am a self-motivated, teamwork-oriented, and responsible Data Scientist with a strong passion for data science and AI/ML. With a background in Mathematics and Data Science, including a Bachelor's and a Master's degree, I have acquired a solid educational foundation in the field. I am trilingual, fluent in English, Hindi, and Punjabi.
+		  </p>
+		  <p style="font-size: 20px;">
+			Previously, I worked as a mathematics teacher in the education field for five years, where I developed strong analytical and problem-solving skills. This experience has given me a unique perspective on translating complex concepts into easily understandable terms.
+		  </p>
+		  <p style="font-size: 20px;">
+			Now, as a Data Scientist, I am excited to apply my expertise in statistical analysis, machine learning, and data visualization to solve real-world problems. I am eager to contribute to the development of innovative solutions that drive meaningful insights and impact.
+		  </p>
+		</div>
+		<div class="col-md-4">
+		  <img class="bio-image" src="https://media.licdn.com/dms/image/D4D03AQHjjMkh7zu5Ew/profile-displayphoto-shrink_800_800/0/1665224508300?e=1694649600&v=beta&t=Vl3apyiC1Q17rnoNuaXSk6m3x0i8OE-rNZw3MZ18ro4" alt="Profile Picture">
+		</div>
+	  </div>
+	</section>
+	<hr>
+
+    <section id="projects">
+      <h1 class="display-4">Projects</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="https://media.istockphoto.com/id/856956280/photo/car-insurance-concept.jpg?s=2048x2048&w=is&k=20&c=h8C6XYHFza3jdlLOATe4gP7TdLbWnVIshMvMyMmiH4I=" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title text-dark">Auto Insurance Industry</h5>
+              <p class="card-text">This Machine Learning model predicts the likelihood of an auto insurance owner initiating a claim in the upcoming year. This model enables proactive risk assessment and helps insurers optimize their strategies to manage potential claims efficiently.</p>
+              <a href="https://github.com/Mandeep-Singh23/Auto-Insurance-Industry" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="https://allai.nl/wp-content/uploads/2021/02/Screenshot-2021-02-11-at-16.52.15-495x400.png" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title text-dark">Face-Mask Detector</h5>
+              <p class="card-text">The Face Mask Detector utilizes deep learning and OpenCV to accurately detect whether a person is wearing a face mask or not, enabling swift identification in real-time scenarios. This advanced model contributes to public health and safety measures by enforcing face mask compliance and preventing the spread of infectious diseases.</p>
+              <a href="https://github.com/Mandeep-Singh23/Face-Mask-Detector" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="https://images.moneycontrol.com/static-mcnews/2023/03/cryptocurrency.jpg?impolicy=website&width=770&height=431" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title text-dark">Crypto Sentiment Analysis</h5>
+              <p class="card-text">The Crypto Sentiment Analysis project leverages the Twitter Developer's API to gather real-time data from Twitter. By employing Natural Language Processing (NLP) techniques, this project enables the analysis of sentiment surrounding cryptocurrencies, providing valuable insights into public opinion and market trends.</p>
+              <a href="https://github.com/Mandeep-Singh23/Crypto_Sentiment_Analysis" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-4">For more such projects, please visit my <a href="https://github.com/Mandeep-Singh23">GitHub Account</a>.</p>
+    </section>
+
+    <hr>
+
+	<section id="skillset" class="skillset-section">
+		<h1 class="display-4">Skillset</h1>
+		<div class="skillset-container">
+		  <!-- Python -->
+		  <div class="skill-item">
+			<i class="fab fa-python skill-icon python"></i>
+			<span class="skill-name">Python</span>
+		  </div>
+
+		  <!-- Machine Learning -->
+		  <div class="skill-item">
+			<i class="fas fa-brain skill-icon machine-learning"></i>
+			<span class="skill-name">Machine Learning</span>
+		  </div>
+
+		  <!-- Natural Language Processing -->
+		  <div class="skill-item">
+			<i class="fas fa-language skill-icon natural-language-processing"></i>
+			<span class="skill-name">Natural Language Processing</span>
+		  </div>
+
+		  <!-- Deep Learning -->
+		  <div class="skill-item">
+			<i class="fas fa-layer-group skill-icon deep-learning"></i>
+			<span class="skill-name">Deep Learning</span>
+		  </div>
+
+		  <!-- MySQL -->
+		  <div class="skill-item">
+			<i class="fas fa-database skill-icon mysql"></i>
+			<span class="skill-name">MySQL</span>
+		  </div>
+
+		  <!-- Tableau -->
+		  <div class="skill-item">
+			<i class="fas fa-chart-bar skill-icon tableau"></i>
+			<span class="skill-name">Tableau</span>
+		  </div>
+
+		  <!-- Statistics -->
+		  <div class="skill-item">
+			<i class="fas fa-chart-pie skill-icon statistics"></i>
+			<span class="skill-name">Statistics</span>
+		  </div>
+
+		  <!-- Pandas -->
+		  <div class="skill-item">
+			<i class="fab fa-python skill-icon pandas"></i>
+			<span class="skill-name">Pandas</span>
+		  </div>
+
+		  <!-- NumPy -->
+		  <div class="skill-item">
+			<i class="fab fa-python skill-icon numpy"></i>
+			<span class="skill-name">NumPy</span>
+		  </div>
+
+		  <!-- LSTM -->
+		  <div class="skill-item">
+			<i class="fas fa-memory skill-icon lstm"></i>
+			<span class="skill-name">LSTM</span>
+		  </div>
+
+		  <!-- OpenCV -->
+		  <div class="skill-item">
+			<i class="fas fa-eye skill-icon opencv"></i>
+			<span class="skill-name">OpenCV</span>
+		  </div>
+
+		  <!-- Mathematics -->
+		  <div class="skill-item">
+			<i class="fas fa-square-root-alt skill-icon mathematics"></i>
+			<span class="skill-name">Mathematics</span>
+		  </div>
+		</div>
+	  </section>
+
+<!-- ... (remaining code) ... -->
+
+    <!-- Visualization using Tableau Section -->
+    <section id="visualization">
+      <h1 class="display-4">Visualization using Tableau</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <a href="https://public.tableau.com/app/profile/mandeep.singh.nagi/viz/ReturnofOrders/Dashboard1" target="_blank">
+            <img src="https://drive.google.com/uc?export=view&id=1x8bUzfdjKYj3MemVUsMjDU2OI6jRw6qy" alt="Visualization 1" style="width: 100%;" class="tableau-image">
+          </a>
+        </div>
+        <div class="col-md-12 mt-4">
+          <a href="https://public.tableau.com/app/profile/mandeep.singh.nagi/viz/ReturnPurchase/Sheet2" target="_blank">
+            <img src="https://drive.google.com/uc?export=view&id=1zoAHqcg4cS0YEHiUTlzQ6mYashCCerhX" alt="Visualization 2" style="width: 100%;" class="tableau-image">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="contact">
+      <h1 class="display-4 text-center">Contact Me</h1>
+      <div class="text-center mt-4">
+        <form action="https://formspree.io/f/xvojgjoo" method="POST">
+  <!-- Your form fields -->
+		  <div class="form-group">
+			<input type="email" class="form-control" name="email" placeholder="Enter your email">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Subscribe</button>
+		</form>
+      </div>
+    </section>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function toggleDescription(cardNumber) {
+      var description = document.querySelector(".card-description:nth-child(" + cardNumber + ")");
+      description.classList.toggle("d-none");
+      var readMore = document.querySelector(".read-more:nth-child(" + cardNumber + ")");
+      readMore.textContent = description.classList.contains("d-none") ? "Read More" : "Read Less";
+    }
+  </script>
+</body>
+
+</html>
